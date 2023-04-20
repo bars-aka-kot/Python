@@ -108,3 +108,133 @@ for i in enumeration - программа будет выполняться до
 - r = range(0, -5) # ----
 - r = range(1, 10, 2) # 1 3 5 7 9
 - r = range(100, 0, -20) # 100 80 60 40 20
+
+## Списки
+
+Коллекция данных - структура данных, которая создана, чтобы содержать в себе некоторое количество объектов (одного или разных типов). Бывают разного вида:
+
+- списки
+- кортежи
+- словари
+- множества
+
+1. список - это упорядоченный конечный набор элементов. В качестве ключа используется индекс
+Создание списка:
+list_1 = [] - создание пустого списка
+list_1 = list() - создание пустого списка
+list_1 = [7, 9, 11, 13, 15, 17] - заполненный список
+
+> Нумерация в списках начинается с нуля.  
+> Для вывода конкретного элемента: print(list_1[0])  
+> При выводе списка - команда print(list_1) - будет выведено [7, 9, 11, 13, 15, 17]. Если перед названием списка ввести **"*"** (*print(*list_1)*) - будут выведены значения без скобок [] и запятых - 7 9 11 13 15 17
+
+    Список можно изменять:
+
+- добавлять элементы **list_1.append(n)**, где n - значение элемента списка. Добавляется в конец списка
+- удаление элемента из списка **list_1.pop()** - удаляет последний элемент в списке. **list_1.pop(i)** - удаление i-го элемента в списке.
+- добавление элемента на конкретное место в списке **list_1.insert(2, 11)** - добавление элемента **11** на **2** позицию (по индексу)
+
+2. кортеж - неизменяемый список. Работает быстрее и занимает меньше места.
+Создание кортежа:
+t = () - создание пустого кортежа
+t = (1, 2, 3, ) - создание кортежа. Обязательно в конце ставить запятую
+Можно тип list (список) преобразовать в кортеж (tuple).
+
+> v = [2, 5, 3] - тип list
+> v = tuple(v)
+
+3. словарь - неупорядоченные коллекции произволльныз объектов с доступом по ключу. В качестве ключа используется не индекс, а значение ключа (значение элемента)
+
+dictionary = {}
+dictionary ={'up': '↑', 'left': '←', 'down': '↓', 'right': '→'}
+print(dictionary) # {'up':'↑', 'left':'←', 'down':'↓', 'right':'→'}
+print(dictionary['left']) # ←
+
+***типы ключей могут отличаться***
+print(dictionary['up']) # ↑
+***типы ключей могут отличаться***
+dictionary['left'] = '⇐'
+print(dictionary['left']) # ⇐
+print(dictionary['type']) # KeyError: 'type'
+del dictionary['left'] # удаление элемента
+for item in dictionary: # for (k,v) in dictionary.items():
+print('{}: {}'.format(item, dictionary[item])) # up: ↑ # down: ↓ # right: →
+
+4. Множества содержат в себе уникальные элементы, не обязательно упорядоченные
+
+> Одно множество может содержать значения любых типов
+
+colors = {'red', 'green', 'blue'}
+print(colors) # {'red', 'green', 'blue'}
+colors.add('red')
+print(colors) # {'red', 'green', 'blue'}
+colors.add('gray')
+print(colors) # {'red', 'green', 'blue','gray'}
+colors.remove('red')
+print(colors) # {'green', 'blue','gray'}
+colors.remove('red') # KeyError: 'red'
+colors.discard('red') # ok
+print(colors) # {'green', 'blue','gray'}
+colors.clear() # { }
+print(colors) # set()
+
+Неизменяемое или замороженное множество(frozenset) — множество, с которым
+не будут работать методы удаления и добавления.
+a = {1, 2, 3, 5, 8}
+b = frozenset(a)
+print(b) # frozenset({1, 2, 3, 5, 8})
+
+## Генератор списков list comprehension
+
+list_1 = [exp for item in iterable]  # ппростой список
+list_1 = [exp for item in iterable(if conditional)]  # список с условием
+
+## Часто встречающиеся ошибки
+
+SyntaxError(Синтаксическая ошибка)
+number_first = 5
+number_second = 7
+if number_first > number_second  # !!!!!
+print(number_first)
+
+***Отсутствие :***
+
+IndentationError(Ошибка отступов)
+number_first = 5
+number_second = 7
+if number_first > number_second:
+print(number_first) # !!!!!
+
+***Отсутствие отступов***
+
+TypeError(Ошибка типов)
+text = 'Python'
+number = 5
+print(text + number)
+
+***Нельзя складывать строки и числа***
+
+ZeroDivisionError(Деление на 0)
+number_first = 5
+number_second = 0
+print(number_first // number_second)
+
+***Делить на 0 нельзя***
+
+KeyError(Ошибка ключа)
+dictionary = {1: 'Monday', 2: 'Tuesday'}
+print(dictionary[3])
+
+***Такого ключа не существует***
+
+NameError(Ошибка имени переменной)
+name = 'Ivan'
+print(names)
+
+***Переменной names не существует***
+
+ValueError(Ошибка значения)
+text = 'Python'
+print(int(text))
+
+***Нельзя символы перевести в целые значения***
