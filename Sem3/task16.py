@@ -6,9 +6,9 @@
 #     1 2 3 4 5
 #     3
 #     -> 1
-import random
 
-n = int(input("Введите количество чисел: "))
+#  Первый вариант
+n = int(input("Введите количество элементов массива: "))
 x = int(input("Введите число X: "))
 count = 0
 for i in range(1, n+1):
@@ -16,4 +16,10 @@ for i in range(1, n+1):
     if i == x:
         count += 1
 print()
-print(count)
+print(f"1 - Число X встречается в массиве A - {count} раз")
+
+# Второй вариант
+a = []
+for i in range(1, n):
+    a.append(int(input("Введите элемент массива: ")))
+print(f"2 - Число X встречается в массиве A - {a.count(x)} раз")
