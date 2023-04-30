@@ -10,7 +10,7 @@ def arr(n):
     a = input("Введите число: ")
     if n == 1:
         return a
-    return arr(n-1) + a
+    return arr(n-1) + " " + a
 
 
 n = int(input("Введите: "))

@@ -3,6 +3,9 @@
 
 
 def recurs(a, b):
+
+    if b < 0:
+        return 1/a * recurs(a, b + 1)
     if b == 0:
         return 1
     return a * recurs(a, b - 1)
