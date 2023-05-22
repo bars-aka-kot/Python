@@ -5,6 +5,8 @@
 Ввод: 7 2 5
 Вывод: 7 9 11 13 15'''
 
+# First method
+
 
 def progress(a, d, n):
     if n == 1:
@@ -14,7 +16,16 @@ def progress(a, d, n):
 
 a = int(input("Введите первый элемент прогрессии: "))       # 7
 d = int(input("Введите разность: "))                        # 2
-n = int(input("Введите количество элементов: "))            # 5
+# 5
+n = int(input("Введите количество элементов: "))
 
 for i in range(1, n+1):
     print(progress(a, d, i), end=" ")
+print()
+
+# Second method
+# a = int(input("Введите первый элемент прогрессии: "))
+# d = int(input("Введите разность: "))
+# n = int(input("Введите количество элементов: "))
+
+print([a+i*d for i in range(n)])
