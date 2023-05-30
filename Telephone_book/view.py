@@ -28,7 +28,7 @@ def change_man():
     print(database.open_data())
     p = database.open_data()
     man_number = int(input("Введите номер записи: "))
-    p.pop(man_number)
+    p.pop(man_number).strip("\n").split(", ")
     data = str(p) + input_man()
     return data
 
@@ -37,6 +37,6 @@ def del_man():
     print(database.open_data())
     p = database.open_data()
     man_number = int(input("Введите номер записи: "))
-    p.pop(man_number)
+    p.pop(man_number).strip("\n").split(", ")
     data = str(p)
     return data

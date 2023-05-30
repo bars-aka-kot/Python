@@ -55,4 +55,5 @@ def open_data():
 
 def add_new_data(data):
     with open("Telephone_book\database.txt", "w") as file:
-        file.write(data)
+        for i in data:
+            file.writelines(i)
