@@ -16,12 +16,18 @@ def input_man():
     phone_num = input("Введите телефон: ")
     data = last_name + "; " + first_name + "; " + surname + \
         "; " + birthdate + "; " + phone_num + "; " + "\n"
-    return data
+    return data.lower()
 
 
 def search_man():
-    text_search = input("Введите ключ для поиска: ")
+    text_search = input(
+        "Введите ключ для поиска: ").lower()
     return text_search
+
+
+'''Если разбили с помощью сплит, то либо сначала сделайте из списка строку с помощью метода join() 
+(гляньте в интернете принцип работы), либо можете проходиться циклом по списку и писать каждый элемент отдельно 
+с помощью write и формата открытия файла "a"'''
 
 
 def change_man():
